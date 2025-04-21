@@ -9,10 +9,12 @@ import pydeck as pdk
 import streamlit as st
 import folium
 from streamlit_folium import st_folium
+from pathlib import Path
 
 # Load the knowledge base
-csv_path = r"../data/sample/processed/knowledge_base.csv"
-df = pd.read_csv(csv_path)
+base_path = Path(__file__).parent
+csv_path = base_path / "../data/sample/processed/knowledge_base.csv"
+df = pd.read_csv(csv_path.resolve())
 df["Date"] = pd.to_datetime(df["Date"], dayfirst=True)
 
 min_date = df["Date"].min().replace(day=1).to_pydatetime()
