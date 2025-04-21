@@ -11,7 +11,7 @@ import folium
 from streamlit_folium import st_folium
 
 # Load the knowledge base
-csv_path = r"data\sample\processed\knowledge_base.csv"
+csv_path = r"..\data\sample\processed\knowledge_base.csv"
 df = pd.read_csv(csv_path)
 df["Date"] = pd.to_datetime(df["Date"], dayfirst=True)
 
